@@ -1,10 +1,11 @@
 **smtools** is my repository for molecular sequence manipulation tools (more tools will be added in the future)
 
-# Author
+## Author
 * Simon Crameri (simon.crameri@env.ethz.ch)
 
-# Excise the LSC, IR and SSC regions from complete chloroplast genome sequences
-## get.LSC.IR.SSC.from.chloroplast.genome.sh
+
+
+# get.LSC.IR.SSC.from.chloroplast.genome.sh
 
 ## Overview
 This .bash script allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architechture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
@@ -30,7 +31,7 @@ Besides basic unix/bash functions, the script uses the following software tools 
 ## Usage Example
 The script takes just one (unnamed) argument, namely the input .fasta file.
 
-`<get.LSC.IR.SSC.from.chloroplast.genome.sh chloroplast.genome.fasta>`
+`get.LSC.IR.SSC.from.chloroplast.genome.sh chloroplast.genome.fasta`
 
 ## References
 * Aho AV, Kernighan BW, Weinberger PJ (1987) The AWK programming language. Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA
