@@ -1,7 +1,7 @@
 ## Author
 * Simon Crameri (simon.crameri@env.ethz.ch)
 
-**smtools** is my repository for molecular sequence manipulation tools. More tools will be added in the future.
+**smtools** is my repository for molecular **s**equence **m**anipulation **tools**. More tools will be added in the future.
 
 # Molecular Sequence Manipulation Tools
 
