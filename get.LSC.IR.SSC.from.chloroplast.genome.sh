@@ -101,7 +101,7 @@ doExcise()
 				fi
 
 			## Clean up
-		    /bin/rm -f ${fname}.tmp* ${fasta}.n* ${fname}.LSC.fasta ${fname}.IR.fasta ${fname}.SSC.fasta ${fname}.IRboundaries ${fasta}.fai ${fname}.lengths
+		    	/bin/rm -f ${fname}.tmp* ${fasta}.n* ${fname}.LSC.fasta ${fname}.IR.fasta ${fname}.SSC.fasta ${fname}.IRboundaries ${fasta}.fai ${fname}.lengths
 		fi
 
 }
