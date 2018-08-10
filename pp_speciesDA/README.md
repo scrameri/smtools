@@ -4,7 +4,7 @@
 Core code, see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf
 * Graham Jones, art@gjones.name, Feb 2014
 
-modified code for automatized pairwise distance matrix sorting, labelling, and line drawing 
+Modification for automatized pairwise distance matrix sorting, labelling, and line drawing 
 * Simon Crameri, simon.crameri@env.ethz.ch, Oct 2017
 
 ## Usage
