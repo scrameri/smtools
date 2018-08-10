@@ -10,11 +10,7 @@
 The `bash` script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
 
 ### References
-* Aho AV, Kernighan BW, Weinberger PJ (1987) The AWK programming language. Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA.
-* Camacho C, Coulouris G, Avagyan V et al. (2009) BLAST+: architecture and applications. BMC Bioinformatics, 10, doi:10.1186–1471–2105–10–421.
 * Jansen RK, Ruhlman TA (2012) Plastid Genomes of Seed Plants. In: Genomics of Chloroplasts and Mitochondria: Advances in Photosynthesis and Respiration. Edited by Bock R, Knoop V, vol. 35: Springer Science and Business Media: 103–126.
-* Lavin M, Doyle JJ, Palmer JD (1990) Evolutionary significance of the loss of the chloroplast-DNA inverted repeat in the Leguminosae subfamily Papilionoideae. Evolution, 44, 390–402.
-* Li H, Handsaker B, Wysoker A *et al.* (2009) The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25, 2078–2079.
 
 ## SpeciesDelimitation
 The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones et al 2015) for species delimitation. After running BEAST (Drummond et al 2012) or STACEY (Jones 2017) for BEAST2 (Bouckaert et al 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using SpeciesDelimitationAnalyzer (speciesDA.jar, http://www.indriid.com/software.html). The similarity matrix can then be visualized using the `R` program `plot.simmatrix.R`, which is an improvement on Graham Jones' version of the code, and allows for automatized pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
