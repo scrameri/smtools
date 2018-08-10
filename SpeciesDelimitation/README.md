@@ -54,7 +54,7 @@ plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile
 
 # automatic ordering [according to species.sumtree topology, which will not be plotted] and line drawing [according to PP.thresh = 0.05] 
 # with labels as in <labels.txt> and with colourful plotting with legend
-plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = "labels.txt",
+plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = "STACEY/labels.txt",
                ownorder = NULL, ownlines = NULL, PP.thresh = 0.05, 
                mar = c(0,11,11,2.5), label.size = 1, legendlabel.size = 0.5,
                cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
