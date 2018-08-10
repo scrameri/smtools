@@ -1,34 +1,62 @@
-## get.LSC.IR.SSC.from.chloroplast.genome.sh
+# Post-process SpeciesDA.jar output and display the pairwise similarity matrix
 
-### Overview
-This .bash script allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
+## Authors
+* Graham Jones, art@gjones.name, Feb 2014
+Core code, see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf
 
-### How it works
-The script uses *BLAST+* (Camacho *et al.* 2009) to align the complete chloroplast sequence against itself. *BLAST+* returns the alignment coordinates for the two IR regions and thereby determines the IR boundaires. Subsequently, the script uses the IR boundaries to individually excise the LSC, IR (just the first copy) and SSC regions, using *samtools* (Li *et al.* 2009). The LSC, IR and SSC regions are then saved as separate regions in the output .LSC.IR.SSC.fasta file. A .blast output is also produced and may be used to inspect the *BLAST+* hits. The script also checks the .fasta input (needs to be a single-region .fasta file containig two IR copies) and output (combined lengths of LSC, 2xIR and SSC must match the total chloroplast genome length).
+* Simon Crameri, simon.crameri@env.ethz.ch, Oct 2017
+modified code for automatized pairwise distance matrix sorting, labelling, and line drawing 
 
-### Input Sequence Requirements
-There are three conditions that must be met in order for the process to work:
+## Usage
+This script may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be produced using the 'R' code below, which is an improved version of Graham Jones' version of the code, and allows for automatized pairwise distance matrix sorting, labelling, and line drawing.
 
-* the chloroplast genome must be complete/circular
-* the chloroplast genome sequence must start with the first base of the LSC region and end with the last base of the second IR (this follows the standard representation of chloroplast genomes). The program will run but issue a warning message if the combined lengths of LSC, 2xIR and SSC do not match the total chloroplast genome length.
-* the chloroplast genome sequence must contain two copies of the IR region. For instance, legume plants of the inverted-repeat-lacking-clade (IRLC) have just one copy (Lavin *et al.* 1990). The program will exit with a warning message if it could not identify two copies of the IR.
+'
+## Load R function
+source("plot.simmatrix.R")
 
-### Software Requirements
-Besides basic unix/bash functions, the script uses the following software tools internally:
+## Inspect R funciton
+args(plot.simmatrix) # function arguments
+plot.simmatrix # function usage and function code
 
-* awk (Aho *et al.* 1987)
-* BLAST+ (Camacho *et al.* 2009)
-* samtools (Li *et al.* 2009)
-* sed (used for in-place replacement of ':', ',' or ' ' characters in .fasta headers)
 
-### Usage Example
-The script takes just one (unnamed) argument, namely the input .fasta file.
+## Usage examples (example data in STACEY folder)
+# automatic ordering [according to species.sumtree topology, which will be plotted] and line drawing [according to PP.thresh = 0.0]
+# with labels as in <speciesDAoutput.txt> [no labelfile needed here] and black-and-white plotting
+plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = NULL,
+               ownorder = NULL, ownlines = NULL, PP.thresh = 0.0, 
+               mar = c(0,4,4,0), 
+               cols = c("black", "white"), border.col = "white", legend = FALSE, 
+               plot.phylo = TRUE, save.pdf = FALSE, pdf.name = "SimMatrix.pdf")
 
-`get.LSC.IR.SSC.from.chloroplast.genome.sh chloroplast.genome.fasta`
+# automatic ordering [according to species.sumtree topology, which will not be plotted] and line drawing [according to PP.thresh = 0.05] 
+# with labels as in <labels.txt> and with colourful plotting with legend
+plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = "labels.txt",
+               ownorder = NULL, ownlines = NULL, PP.thresh = 0.05, 
+               mar = c(0,11,11,2.5), label.size = 1, legendlabel.size = 0.5,
+               cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
+               plot.phylo = FALSE, save.pdf = FALSE, pdf.name = "SimMatrix.pdf")
+
+# own specification for order and lines [no species.sumtree needed. Output can be redirected to an R object and printed
+ownorder = c(28, 10, 5, 21, 16, 19, 3, 7, 22, 26, 13, 9, 11, 8, 18, 15, 17, 20, 2, 4, 1, 14, 27, 6, 25, 24, 23, 12) 
+'(28+4)th column in <speciesDAoutput.txt> is set as the first individual [top left in similarity matrix plot],
+ (10+4)th column in <speciesDAoutput.txt> is set as the second individual, 
+ etc.'
+
+ownlines = c(1, 7, 8, 11, 14, 18, 19, 21) 
+'a line will be drawn separating the 1st individual (after sorting) from the rest, 
+ a second line will be drawn separating the 7th individual (after sorting) from the following individuals, 
+ etc.'
+
+res <- plot.simmatrix("STACEY/speciesDAoutput.txt", labelfile = "labels.txt",
+               ownorder = ownorder, ownlines = ownlines, PP.thresh = NULL, 
+               mar = c(0,11,11,2.5), 
+               cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
+               plot.phylo = FALSE, save.pdf = FALSE, pdf.name = "SimMatrix.pdf")
+print(res, digits = 2)
+'
 
 ### References
-* Aho AV, Kernighan BW, Weinberger PJ (1987) The AWK programming language. Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA.
-* Camacho C, Coulouris G, Avagyan V et al. (2009) BLAST+: architecture and applications. BMC Bioinformatics, 10, doi:10.1186–1471–2105–10–421.
-* Jansen RK, Ruhlman TA (2012) Plastid Genomes of Seed Plants. In: Genomics of Chloroplasts and Mitochondria: Advances in Photosynthesis and Respiration. Edited by Bock R, Knoop V, vol. 35: Springer Science and Business Media: 103–126.
-* Lavin M, Doyle JJ, Palmer JD (1990) Evolutionary significance of the loss of the chloroplast-DNA inverted repeat in the Leguminosae subfamily Papilionoideae. Evolution, 44, 390–402.
-* Li H, Handsaker B, Wysoker A *et al.* (2009) The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25, 2078–2079.
+* Bouckaert R, Heled J, Kühnert D, Vaughan T, Wu C-H, Xie D, Suchard, M.A., Rambaut A, Drummond A.J. (2014) BEAST 2: a software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 10 (4), e1003537.
+* Drummond, A.J. Marc A. Suchard, M.A., Xie D, Rambaut A (2012) Bayesian phylogenetics with BEAUti and the BEAST 1.7. Molecular Biology and Evolution, 29, 1969–1973.
+* Jones G, Zeynep A, Oxelman B (2015) DISSECT: an assignment-free Bayesian discovery method for species delimitation under the multispecies coalescent. Bioinformatics, 31(7), 991-998.
+* Jones G (2017) Algorithmic improvements to species delimitation and phylogeny estimation under the multispecies coalescent. Journal of Mathematical Biology, 74(1), 447-467.
