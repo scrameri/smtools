@@ -1,13 +1,13 @@
-# Display the DISSECT/speciesDA.jar similarity matrix
+## Display the DISSECT/speciesDA.jar similarity matrix
 
-## Authors
+### Authors
 Core code, see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf
 * Graham Jones, art@gjones.name, Feb 2014
 
 Modification for automatized pairwise distance matrix sorting, labelling, and line drawing 
 * Simon Crameri, simon.crameri@env.ethz.ch, Aug 2018
 
-## Usage
+### Usage
 The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species trees, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be visualized using the `R` program `plot.simmatrix.R`, which is an improvement on Graham Jones' version of the code, and allows for automatic pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
 
 ```
@@ -19,7 +19,7 @@ args(plot.simmatrix) # arguments
 plot.simmatrix # usage
 ```
 
-### Arguments
+#### Arguments
 ```
   speciesDAoutput  character     speciesDA.jar output file (.txt format). See http://www.indriid.com/software.html, Species Delimitation Analyzer. This program takes species trees as input, and outputs clustering solutions.
   summarized.tree  character     SEMI-OPTIONAL nexus-formatted tree file from with the topology is read, which is used to order the similarity matrix accordingly. File is read using the ape::read.nexus() function. This argument MUST be specified if <ownorder> is NULL.
@@ -42,7 +42,7 @@ plot.simmatrix # usage
   pdf.name         character     File name for output file (should have extension ".pdf")
 ```
 
-### Usage examples (example data in STACEY folder)
+#### Usage examples (example data in STACEY folder)
 ```
 # automatic ordering [according to species.sumtree topology, which will be plotted] and line drawing [according to PP.thresh = 0.0]
 # with labels as in <speciesDAoutput.txt> [no labelfile needed here] and black-and-white plotting
