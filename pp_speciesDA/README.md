@@ -1,4 +1,4 @@
-# Display the similarity matrix (DISSECT and speciesDA.jar output)
+# Display the DISSECT/speciesDA.jar similarity matrix
 
 ## Authors
 Core code, see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf
