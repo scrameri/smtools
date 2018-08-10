@@ -6,7 +6,7 @@
 * Simon Crameri (simon.crameri@env.ethz.ch)
 
 
-## cp_genome
+## ChloroplastGenome
 The `bash` script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
 
 ### References
@@ -16,8 +16,8 @@ The `bash` script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excisio
 * Lavin M, Doyle JJ, Palmer JD (1990) Evolutionary significance of the loss of the chloroplast-DNA inverted repeat in the Leguminosae subfamily Papilionoideae. Evolution, 44, 390–402.
 * Li H, Handsaker B, Wysoker A *et al.* (2009) The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25, 2078–2079.
 
-## pp_speciesDA
-The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones et al 2015) for species delimitation. After running BEAST (Drummond et al 2012) or STACEY (Jones 2017) for BEAST2 (Bouckaert et al 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using SpeciesDelimitationAnalyzer (speciesDA.jar, http://www.indriid.com/software.html). The similarity matrix can then be visualized using the R program plot.simmatrix.R, which is an improvement on Graham Jones' version of the code, and allows for automatized pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
+## SpeciesDelimitation
+The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones et al 2015) for species delimitation. After running BEAST (Drummond et al 2012) or STACEY (Jones 2017) for BEAST2 (Bouckaert et al 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using SpeciesDelimitationAnalyzer (speciesDA.jar, http://www.indriid.com/software.html). The similarity matrix can then be visualized using the `R` program `plot.simmatrix.R`, which is an improvement on Graham Jones' version of the code, and allows for automatized pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
 
 ### References
 * Bouckaert R, Heled J, Kühnert D, Vaughan T, Wu C-H, Xie D, Suchard, M.A., Rambaut A, Drummond A.J. (2014) BEAST 2: a software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 10 (4), e1003537.
