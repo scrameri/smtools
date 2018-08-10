@@ -8,7 +8,7 @@ Modification for automatized pairwise distance matrix sorting, labelling, and li
 * Simon Crameri, simon.crameri@env.ethz.ch, Aug 2018
 
 ## Usage
-This script may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be visualized using the `R` program `plot.simmatrix.R`, which is an improvement on Graham Jones' version of the code, and allows for automatic pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
+This script may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species trees, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be visualized using the `R` program `plot.simmatrix.R`, which is an improvement on Graham Jones' version of the code, and allows for automatic pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
 
 ```
 ## Load R function
