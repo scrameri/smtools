@@ -2,9 +2,12 @@
 
 ## Authors
 * Graham Jones, art@gjones.name, Feb 2014
+
 Core code, see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf
 
+
 * Simon Crameri, simon.crameri@env.ethz.ch, Oct 2017
+
 modified code for automatized pairwise distance matrix sorting, labelling, and line drawing 
 
 ## Usage
