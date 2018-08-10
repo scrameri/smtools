@@ -5,6 +5,9 @@
 ## Contact
 * Simon Crameri (simon.crameri@env.ethz.ch)
 
+## Citation
+Please cite this page if you are using any of these tools for published work.
+
 
 ## ChloroplastGenome
 The `bash` script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
