@@ -21,6 +21,7 @@ plot.simmatrix # usage
 
 ### Arguments
 ```
+  speciesDAoutput  character     speciesDA.jar output file (.txt format). See http://www.indriid.com/software.html, Species Delimitation Analyzer. This program takes species trees as input, and outputs clustering solutions.
   summarized.tree  character     SEMI-OPTIONAL nexus-formatted tree file from with the topology is read, which is used to order the similarity matrix accordingly. File is read using the ape::read.nexus() function. This argument MUST be specified if <ownorder> is NULL.
   labelfile        character     OPTIONAL file where the labels used in <summarized.tree> [FIRST column in <labelfile>] are referenced to labels used for the similarity matrix plot [SECOND column in <labelfile>]. All tips need to be included in this table. Their order is not important (will be ordered according to <summarized.tree>). If <labelfile> is specified, uses the labels specified in the SECOND column of the <labelfile> for plotting.
   
