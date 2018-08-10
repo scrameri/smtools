@@ -10,7 +10,7 @@ modified code for automatized pairwise distance matrix sorting, labelling, and l
 ## Usage
 This script may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species tree topologies, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be produced using the 'R' code below, which is an improved version of Graham Jones' version of the code, and allows for automatized pairwise distance matrix sorting, labelling, and line drawing.
 
-'
+```
 ## Load R function
 source("plot.simmatrix.R")
 
@@ -53,7 +53,7 @@ res <- plot.simmatrix("STACEY/speciesDAoutput.txt", labelfile = "labels.txt",
                cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
                plot.phylo = FALSE, save.pdf = FALSE, pdf.name = "SimMatrix.pdf")
 print(res, digits = 2)
-'
+```
 
 ### References
 * Bouckaert R, Heled J, Kühnert D, Vaughan T, Wu C-H, Xie D, Suchard, M.A., Rambaut A, Drummond A.J. (2014) BEAST 2: a software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 10 (4), e1003537.
