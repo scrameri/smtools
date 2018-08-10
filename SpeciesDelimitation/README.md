@@ -71,7 +71,7 @@ ownlines = c(1, 7, 8, 11, 14, 18, 19, 21)
  a second line will be drawn separating the 7th individual (after sorting) from the following individuals, 
  etc.'
 
-res <- plot.simmatrix("STACEY/speciesDAoutput.txt", labelfile = "labels.txt",
+res <- plot.simmatrix("STACEY/speciesDAoutput.txt", labelfile = "STACEY/labels.txt",
                ownorder = ownorder, ownlines = ownlines, PP.thresh = NULL, 
                mar = c(0,11,11,2.5), 
                cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
