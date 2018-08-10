@@ -20,7 +20,7 @@ plot.simmatrix <- function(speciesDAoutput, summarized.tree = NULL, labelfile = 
   '
   speciesDAoutput  character     speciesDA.jar output file (.txt format). See http://www.indriid.com/software.html, Species Delimitation Analyzer. This program takes species trees as input, and outputs clustering solutions.
   summarized.tree  character     SEMI-OPTIONAL nexus-formatted tree file from with the topology is read, which is used to order the similarity matrix accordingly. File is read using the ape::read.nexus() function. This argument MUST be specified if <ownorder> is NULL.
-  labelfile        character     OPTIONAL file where the labels used in <summarized.tree> [FIRST column in <labelfile>] are referenced to labels used for the similarity matrix plot [SECOND column in <labelfile>]. All tips need to be included in this table. Their order is not important (will be ordered according to <summarized.tree>). If <labelfile> is specified, uses the labels specified in the SECOND column of the <labelfile> for plotting.
+  labelfile        character     OPTIONAL file where the labels used in <summarized.tree> [FIRST column in <labelfile>] are referenced to labels used for the similarity matrix plot [SECOND column in <labelfile>]. A header is expected. All tips need to be included in this table. Their order is not important (will be ordered according to <summarized.tree>). If <labelfile> is specified, uses the labels specified in the SECOND column of the <labelfile> for plotting.
   
   ownorder         numeric       If NULL, ordering will be performed automatically based on the topoplogy of <summarized.tree>. If a numeric vector of length equalling the number of tips, ordering will be performed using the manual ordering specification: the first index comes in the top left corner of the plot, etc.
   ownlines         numeric       If NULL, line drawing will be performed automatically based on the <PP.thresh> criterion. If a numeric vector of length equalling the number of lines, line drawing will be performed using the manual line specification: the first line is drawn below the the first index, etc.
@@ -90,8 +90,11 @@ plot.simmatrix <- function(speciesDAoutput, summarized.tree = NULL, labelfile = 
     is.logical(legend),
     is.logical(plot.phylo),
     is.numeric(mar),
+    is.numeric(label.size),
+    is.numeric(legendlabel.size),
     length(mar) == 4,
     label.size >= 0,
+    legendlabel.size >= 0,
     mar >= 0
   )
   
