@@ -13,7 +13,7 @@ plot.simmatrix <- function(speciesDAoutput, summarized.tree = NULL, labelfile = 
   # by Graham Jones, art@gjones.name, Feb 2014
   
   # Code modified for automatized pairwise distance matrix sorting, labelling, and line drawing 
-  # by Simon Crameri, simon.crameri@env.ethz.ch, Oct 2017
+  # by Simon Crameri, simon.crameri@env.ethz.ch, Aug 2018
   
   
   ## Usage
