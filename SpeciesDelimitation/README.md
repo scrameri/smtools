@@ -33,7 +33,7 @@ plot.simmatrix # usage
   label.size       numeric      1                           numeric giving the size of labels on x and y axes
   legendlabel.size numeric      1                           numeric giving the size of labels next to the color legend
   
-  cols             color vector c("blue","orange","white") color vector of length >=2 containing valid R colors to which low and high similarity indices are mapped to.
+  cols             color vector c("blue","orange","white")  color vector of length >=2 containing valid R colors to which low and high similarity indices are mapped to.
   border.col       color        NULL                        color vector of length 1 containing a valid R color specifying the border color of all plotted rectangles. If NULL, the borders will have the same color as the rectangles.
   legend           logical      TRUE                        If TRUE, the color legend will be plotted.
   
