@@ -1,7 +1,10 @@
-## get.LSC.IR.SSC.from.chloroplast.genome.sh
+## Excise LSC, IR and SSC from chloroplast genomes
+
+### Author
+* Simon Crameri (simon.crameri@env.ethz.ch)
 
 ### Overview
-This .bash script allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
+The .bash script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excision of the three parts of plant chloroplast genomes: the **large single-copy (LSC)**, **small single-copy (SSC)** and **inverted repeat (IR)** regions, respectively. The script takes advantage of the fact that most plant chloroplast genomes have two copies of the IR (leading to a quadripartite architecture, Jansen & Ruhlmann 2012), and that therefore, the boundaries between the LSC, IR and SSC can be easily determined using an alignment tool. 
 
 ### How it works
 The script uses *BLAST+* (Camacho *et al.* 2009) to align the complete chloroplast sequence against itself. *BLAST+* returns the alignment coordinates for the two IR regions and thereby determines the IR boundaires. Subsequently, the script uses the IR boundaries to individually excise the LSC, IR (just the first copy) and SSC regions, using *samtools* (Li *et al.* 2009). The LSC, IR and SSC regions are then saved as separate regions in the output .LSC.IR.SSC.fasta file. A .blast output is also produced and may be used to inspect the *BLAST+* hits. The script also checks the .fasta input (needs to be a single-region .fasta file containig two IR copies) and output (combined lengths of LSC, 2xIR and SSC must match the total chloroplast genome length).
