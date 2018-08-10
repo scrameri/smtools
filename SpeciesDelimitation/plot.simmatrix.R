@@ -27,8 +27,8 @@ plot.simmatrix <- function(speciesDAoutput, summarized.tree = NULL, labelfile = 
   PP.thresh        numeric       Posterior probability threshold to draw a line between clades if <ownlines> = NULL. For each grid point along the diagonal in the pairwise distance matrix, it is assessed whether the posterior probability in the grid square below/to the right of that grid point is equal to or lower than PP.thresh. If yes, a line will be drawn to delineate species clades.
   
   mar              numeric       numeric vector of lenght 4 specifying the plot margins below (1), to the left (2), to the top (3) and to the right (4) of the plot.
-  label.size       numeric       numeric giving the size of labels on x and y axes
-  legendlabel.size numeric       numeric giving the size of labels next to the color legend
+  label.size       numeric       numeric giving the size of labels on x and y axes.
+  legendlabel.size numeric       numeric giving the size of labels next to the color legend.
   
   cols             color vector  color vector of length >=2 containing valid R colors to which low and high similarity indices are mapped to.
   border.col       color vector  color vector of length 1 containing a valid R color specifying the border color of all plotted rectangles. If NULL, the borders will have the same color as the rectangles.
