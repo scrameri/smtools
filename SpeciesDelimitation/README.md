@@ -21,25 +21,25 @@ plot.simmatrix # usage
 
 #### Arguments
 ```
-  speciesDAoutput  character     speciesDA.jar output file (.txt format). See http://www.indriid.com/software.html, Species Delimitation Analyzer. This program takes species trees as input, and outputs clustering solutions.
-  summarized.tree  character     SEMI-OPTIONAL nexus-formatted tree file from with the topology is read, which is used to order the similarity matrix accordingly. File is read using the ape::read.nexus() function. This argument MUST be specified if <ownorder> is NULL.
-  labelfile        character     OPTIONAL file where the labels used in <summarized.tree> [FIRST column in <labelfile>] are referenced to labels used for the similarity matrix plot [SECOND column in <labelfile>]. All tips need to be included in this table. Their order is not important (will be ordered according to <summarized.tree>). If <labelfile> is specified, uses the labels specified in the SECOND column of the <labelfile> for plotting.
+  speciesDAoutput  character                               REQUIRED speciesDA.jar output file (.txt format). See http://www.indriid.com/software.html, Species Delimitation Analyzer. This program takes species trees as input, and outputs clustering solutions.
+  summarized.tree  character   NULL                        SEMI-OPTIONAL nexus-formatted tree file from with the topology is read, which is used to order the similarity matrix accordingly. File is read using the ape::read.nexus() function. This argument MUST be specified if <ownorder> is NULL.
+  labelfile        character   NULL                        OPTIONAL file where the labels used in <summarized.tree> [FIRST column in <labelfile>] are referenced to labels used for the similarity matrix plot [SECOND column in <labelfile>]. All tips need to be included in this table. Their order is not important (will be ordered according to <summarized.tree>). If <labelfile> is specified, uses the labels specified in the SECOND column of the <labelfile> for plotting.
   
-  ownorder         numeric       If NULL, ordering will be performed automatically based on the topoplogy of <summarized.tree>. If a numeric vector of length equalling the number of tips, ordering will be performed using the manual ordering specification: the first index comes in the top left corner of the plot, etc.
-  ownlines         numeric       If NULL, line drawing will be performed automatically based on the <PP.thresh> criterion. If a numeric vector of length equalling the number of lines, line drawing will be performed using the manual line specification: the first line is drawn below the the first index, etc.
-  PP.thresh        numeric       Posterior probability threshold to draw a line between clades if <ownlines> = NULL. For each grid point along the diagonal in the pairwise distance matrix, it is assessed whether the posterior probability in the grid square below/to the right of that grid point is equal to or lower than PP.thresh. If yes, a line will be drawn to delineate species clades.
+  ownorder         numeric     NULL                        If NULL, ordering will be performed automatically based on the topoplogy of <summarized.tree>. If a numeric vector of length equalling the number of tips, ordering will be performed using the manual ordering specification: the first index comes in the top left corner of the plot, etc.
+  ownlines         numeric     NULL                        If NULL, line drawing will be performed automatically based on the <PP.thresh> criterion. If a numeric vector of length equalling the number of lines, line drawing will be performed using the manual line specification: the first line is drawn below the the first index, etc.
+  PP.thresh        numeric     0.05                        Posterior probability threshold to draw a line between clades if <ownlines> = NULL. For each grid point along the diagonal in the pairwise distance matrix, it is assessed whether the posterior probability in the grid square below/to the right of that grid point is equal to or lower than PP.thresh. If yes, a line will be drawn to delineate species clades.
   
-  mar              numeric       numeric vector of lenght 4 specifying the plot margins below (1), to the left (2), to the top (3) and to the right (4) of the plot.
-  label.size       numeric       numeric giving the size of labels on x and y axes
-  legendlabel.size numeric       numeric giving the size of labels next to the color legend
+  mar              numeric     c(0,10,10,1)                numeric vector of lenght 4 specifying the plot margins below (1), to the left (2), to the top (3) and to the right (4) of the plot.
+  label.size       numeric     1                           numeric giving the size of labels on x and y axes
+  legendlabel.size numeric     1                           numeric giving the size of labels next to the color legend
   
-  cols             color vector  color vector of length >=2 containing valid R colors to which low and high similarity indices are mapped to.
-  border.col       color vector  color vector of length 1 containing a valid R color specifying the border color of all plotted rectangles. If NULL, the borders will have the same color as the rectangles.
-  legend           logical       If TRUE, the color legend will be plotted.
+  cols             color vector c("blue","orange","white") color vector of length >=2 containing valid R colors to which low and high similarity indices are mapped to.
+  border.col       color       NULL                        color vector of length 1 containing a valid R color specifying the border color of all plotted rectangles. If NULL, the borders will have the same color as the rectangles.
+  legend           logical     TRUE                        If TRUE, the color legend will be plotted.
   
-  plot.phylo       logical       If TRUE and <summarized.tree> is specified, a phylogram of <summarized.tree> will be plotted before the similarity matrix.
-  save.pdf         logical       If TRUE, a .pdf file with the similarity matrix plot named <pdf.name> will be saved.
-  pdf.name         character     File name for output file (should have extension ".pdf")
+  plot.phylo       logical     FALSE                       If TRUE and <summarized.tree> is specified, a phylogram of <summarized.tree> will be plotted before the similarity matrix.
+  save.pdf         logical     FALSE                       If TRUE, a .pdf file with the similarity matrix plot named <pdf.name> will be saved.
+  pdf.name         character   SimMatrix.pdf               File name for output file (should have extension ".pdf")
 ```
 
 #### Usage examples (example data in STACEY folder)
