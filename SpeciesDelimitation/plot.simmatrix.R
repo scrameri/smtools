@@ -44,7 +44,7 @@ plot.simmatrix <- function(speciesDAoutput, summarized.tree = NULL, labelfile = 
   load.pkgs <- c("ape")
   need.pkgs <- load.pkgs[which(!load.pkgs %in% installed.packages())]
   if (length(need.pkgs) > 0) {
-    for (i in need.pkgs) install.pakcages(i)
+    for (i in need.pkgs) install.packages(i)
   }
   
   # Display package version of loaded packages
