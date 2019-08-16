@@ -49,7 +49,7 @@ plot.simmatrix # usage
 ```
 # automatic ordering [according to species.sumtree topology, which will be plotted] and line drawing [according to PP.thresh = 0.0]
 # with labels as in <speciesDAoutput.txt> [no labelfile needed here] and black-and-white plotting
-plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = NULL,
+plot.simmatrix(speciesDAoutput = "STACEY/speciesDAoutput.txt", summarized.tree = "STACEY/species.sumtree", labelfile = NULL,
                ownorder = NULL, ownlines = NULL, PP.thresh = 0.0, 
                mar = c(0,4,4,0), 
                cols = c("black", "white"), border.col = "white", legend = FALSE, 
@@ -57,7 +57,7 @@ plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile
 
 # automatic ordering [according to species.sumtree topology, which will not be plotted] and line drawing [according to PP.thresh = 0.05] 
 # with labels as in <labels.txt> and with colourful plotting with legend
-plot.simmatrix("STACEY/speciesDAoutput.txt", "STACEY/species.sumtree", labelfile = "STACEY/labels.txt",
+plot.simmatrix(speciesDAoutput = "STACEY/speciesDAoutput.txt", summarized.tree = "STACEY/species.sumtree", labelfile = "STACEY/labels.txt",
                ownorder = NULL, ownlines = NULL, PP.thresh = 0.05, 
                mar = c(0,11,11,2.5), label.size = 1, legendlabel.size = 0.5,
                cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
@@ -74,7 +74,7 @@ ownlines = c(1, 7, 8, 11, 14, 18, 19, 21)
  a second line will be drawn separating the 7th individual (after sorting) from the following individuals, 
  etc.'
 
-res <- plot.simmatrix("STACEY/speciesDAoutput.txt", labelfile = "STACEY/labels.txt",
+res <- plot.simmatrix(speciesDAoutput = "STACEY/speciesDAoutput.txt", labelfile = "STACEY/labels.txt",
                ownorder = ownorder, ownlines = ownlines, PP.thresh = NULL, 
                mar = c(0,11,11,2.5), 
                cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
