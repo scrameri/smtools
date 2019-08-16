@@ -14,12 +14,11 @@ Example data
 The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones *et al* 2015) for **species delimitation**. After running *BEAST* (Drummond *et al* 2012) or *STACEY* (Jones 2017) for *BEAST2* (Bouckaert *et al* 2014) to obtain a set of species trees, one can "summarize the posterior frequencies of clusterings" using *SpeciesDelimitationAnalyzer* (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be visualized using the `R` function `plot.simmatrix`, which is an extension on Graham Jones' version of the code (see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf), and allows for custom or automatic pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
 
 ```
-## Load R function
-source("plot.simmatrix.R")
-
-## Inspect R funciton
-args(plot.simmatrix) # arguments
-plot.simmatrix # usage
+plot.simmatrix(speciesDAoutput, summarized.tree = NULL, labelfile = NULL, 
+               ownorder = NULL, ownlines = NULL, PP.thresh = 0.05, 
+               mar = c(0, 10, 10, 1), label.size = 1, legendlabel.size = 1, 
+               cols = c("blue", "orange", "white"), border.col = NULL, legend = TRUE, 
+               plot.phylo = FALSE, save.pdf = FALSE, pdf.name = "SimMatrix.pdf") 
 ```
 
 #### Arguments
@@ -45,7 +44,7 @@ plot.simmatrix # usage
   pdf.name         character    SimMatrix.pdf               File name for output file (should have extension ".pdf")
 ```
 
-#### Usage examples (see simmatrix_TUTORIAL.R, example data in STACEY folder)
+#### Examples (see simmatrix_TUTORIAL.R, example data in STACEY folder)
 ```
 ############################################################
 ### TUTORIAL on how to use the plot.simmatrix() function ###
