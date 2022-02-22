@@ -1,9 +1,9 @@
 # smtools
 
-**smtools** is my repository for molecular **s**equence **m**anipulation **tools** and scripts related to genetic analysis. More tools will be added in the future.
+**smtools** is my repository for molecular **s**equence **m**anipulation **tools** and scripts related to genetic analysis. More tools may be added in the future.
 
 ## Contact
-* Simon Crameri (simon.crameri@env.ethz.ch)
+* Simon Crameri (simon.crameri@usys.ethz.ch)
 
 ## Citation
 Please cite this page if you are using any of these tools for published work.
