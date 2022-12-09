@@ -3,7 +3,7 @@
 **smtools** is my repository for molecular **s**equence **m**anipulation **tools** and scripts related to genetic analysis. More tools may be added in the future.
 
 ## Contact
-* Simon Crameri (simon.crameri@usys.ethz.ch)
+* Simon Crameri (sfcrameri@gmail.com)
 
 ## Citation
 Please cite this page if you are using any of these tools for published work.
@@ -15,7 +15,7 @@ The `bash` script `get.LSC.IR.SSC.from.chloroplast.genome.sh` allows for excisio
 ### References
 * Jansen RK, Ruhlman TA (2012) Plastid Genomes of Seed Plants. In: Genomics of Chloroplasts and Mitochondria: Advances in Photosynthesis and Respiration. Edited by Bock R, Knoop V, vol. 35: Springer Science and Business Media: 103–126.
 
-## SpeciesDelimitation
+## SpeciesDelimitation ( [tutorial here](https://github.com/scrameri/smtools/tree/master/SpeciesDelimitation) )
 The `R` script `plot.simmatrix.R` may be used within the DISSECT workflow (Jones *et al* 2015) for species delimitation. After running BEAST (Drummond *et al* 2012) or STACEY (Jones 2017) for BEAST2 (Bouckaert *et al* 2014) to obtain a set of species trees, one can "summarize the posterior frequencies of clusterings" using SpeciesDelimitationAnalyzer (speciesDA.jar, http://www.indriid.com/software.html). The **similarity matrix** can then be visualized using the `R` function `plot.simmatrix`, which is an extension on Graham Jones' version of the code (see http://www.indriid.com/2014/species-delim-paper-SuppIinfo-v8.pdf), and allows for automatic pairwise distance matrix sorting (using a summary tree topology in NEXUS format), labelling, and line drawing.
 
 ### References
