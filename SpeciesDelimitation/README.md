@@ -5,7 +5,7 @@ Core code
 * Graham Jones, art@gjones.name, Feb 2014
 
 Code modification for automatized pairwise distance matrix sorting, labelling, and line drawing 
-* Simon Crameri, simon.crameri@env.ethz.ch, Aug 2018
+* Simon Crameri, sfcrameri@gmail.com, Aug 2018
 
 Example data
 * taken from Jones *et al* (2015)
